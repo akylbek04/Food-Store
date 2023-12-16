@@ -2,18 +2,21 @@ import classes from "./MealForm.module.css";
 import Input from "../UI/Input";
 import { useRef, useState } from "react";
 
-const MealForm = () => {
+const MealForm = ({onAddToCart}) => {
   const [isValid, setIsValid] = useState(true);
   const input = useRef();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    let enteredAmount = +input.current.value;
+    let enteredAmount = input.current.value;
+    let enteredAmountNumber = +enteredAmount
 
-    if (enteredAmount.trim() === 0 || enteredAmount > 5) {
+    if (enteredAmount.trim().length === 0 || enteredAmountNumber < 1 || enteredAmountNumber > 5) {
       setIsValid(false);
       return;
     }
+
+    onAddToCart(enteredAmountNumber)
   };
 
   return (
