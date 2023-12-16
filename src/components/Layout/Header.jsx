@@ -3,12 +3,12 @@ import img from "../../assets/meals.jpg";
 import classes from "./Header.module.css";
 import CartButton from "./CartButton";
 
-const Header = () => {
+const Header = ({handleOpen}) => {
   return (
     <>
       <header className={classes.header}>
         <h1>React meals</h1>
-        <CartButton />
+        <CartButton  handleOpen={handleOpen}/>
       </header>
       <div className={classes["main-image"]}>
         <img src={img} alt="a table full of meals" />
