@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef } from "react";
 import classes from "./Input.module.css";
 
 const Input = forwardRef(function Input({ label, input }, ref) {
